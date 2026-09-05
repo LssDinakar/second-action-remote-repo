@@ -17,3 +17,18 @@ jobs:
       - name: run specific tests
         run: npm test
         working-directory: ./02 Starting Project/
+  deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get the code from repo
+        uses: actions/checkout@v7
+      - name: install nodejs
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./02 Starting Project/
+      - name: Deploy
+        run: echo "Deploying application"
