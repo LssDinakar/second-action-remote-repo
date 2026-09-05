@@ -1,6 +1,7 @@
 name: Test-Event
-on: push
-jobs:
+on: push #Single workflow events
+#on: [push, workflow_dispatch]  #Multiple workflow events
+jobs: #Job specification
   test:
     runs-on: ubuntu-latest
     steps: 
@@ -18,8 +19,8 @@ jobs:
         run: npm test
         working-directory: ./02 Starting Project/
   deploy:
-    needs: test
-    runs-on: ubuntu-latest
+    needs: test #Dependency on test job
+    runs-on: ubuntu-latest # Runner environment
     steps: 
       - name: Get the code from repo
         uses: actions/checkout@v7
