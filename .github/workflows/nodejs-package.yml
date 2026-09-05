@@ -13,5 +13,7 @@ jobs:
           package-manager-cache: false
       - name: Install dependencies
         run: npm install
+        working-directory: ./02 Starting Project/
       - name: run specific tests
         run: npm test
+        working-directory: ./02 Starting Project/
